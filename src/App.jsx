@@ -1,11 +1,11 @@
 import './App.css';
-import BookingDateList from './components/DateSelect';
+import BookingSystem from './components/DateSelect';
 
 function App() {
 
   return (
     <>
-      <BookingDateList />
+      <BookingSystem />
     </>
   )
 }
