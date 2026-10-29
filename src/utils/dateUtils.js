@@ -66,7 +66,7 @@ export const ForamtTimeTo12H = (time24) => {
 
     const [ hourStr , minStr ] = time24.split(':');
 
-    const hour = parseInt(hourStr , 10);
+    let hour = parseInt(hourStr , 10);
     const minute = minStr || '00';
 
     const ampm = hour >= 12 ? "PM" : "AM";
