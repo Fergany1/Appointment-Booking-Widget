@@ -9,4 +9,8 @@ export default function Testing(){
     const formattedCard = String(last4).padStart(card.length , '*');
     console.log(formattedCard); //Output ************8888
 
+    // pads text
+    const text = 'Apple';
+    console.log(text.padStart(10)); // add 10 empty spaces leading text
+
 }
