@@ -57,7 +57,7 @@ export function DateUtilsTest(){
     })
 
     // Test 3 - check Service Durations
-    const mockTakenSlot = ['09:00'];
+    const mockTakenSlot = ['09:00' , '09:30'];
     const slots = TimeSlots('09:00' ,'12:00' , 30 , mockTakenSlot);
     const expectedSlotCount = 6;
     console.log(
@@ -69,7 +69,7 @@ export function DateUtilsTest(){
     // Check If '09:30' is Available
     const slot930 = slots.find((s) => s.time24 === '09:30');
     console.log(
-        'Test 3.2 - Is 09:30 Available ?',
+        'Test 3.2 - Is 09:30 Taken ?',
         slot930 && slot930.isTaken ? "✅ PASSED": "❌ Failed "
     );
 
@@ -77,7 +77,7 @@ export function DateUtilsTest(){
     const slot0200 = slots.find((s) => s.time24 === '02:00');
     console.log(
         "Test 3.3 - Check IF 02:00 Is Available ?",
-        slot0200 && slot0200.isTaken ? "✅ PASSED": "❌ Failed "
+        slot0200 && !slot0200.isTaken ? "✅ PASSED": "❌ Failed "
     );
 
     console.groupEnd();

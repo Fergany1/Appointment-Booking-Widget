@@ -35,7 +35,7 @@ export const AvaliableDays = ({ totalDays = 14 }) =>{
   return days;
 }
 
-export function TimeSlots (openTime = '09:00' , closeTime = '23:00' , durationMin = 30 , takeSlots = []) {
+export function TimeSlots(openTime = '09:00' , closeTime = '12:00' , durationMin = 30 , takeSlots = []) {
 
     const slots = [] // to store all generated slots
     const [ startHour , startMin ] = openTime.split(':').map(Number);
@@ -45,7 +45,7 @@ export function TimeSlots (openTime = '09:00' , closeTime = '23:00' , durationMi
     const closingMin = endHour * 60 + endMin;
 
     // as long as the working time is before or equal to the closing time it continues to executs
-    while (currentMin + durationMin <= closeTime){
+    while (currentMin + durationMin <= closingMin){
         const h = Math.floor(currentMin / 60);
         const m = currentMin % 60;
 
@@ -53,7 +53,7 @@ export function TimeSlots (openTime = '09:00' , closeTime = '23:00' , durationMi
 
         slots.push({
             time24:time24,
-            displayTime: foramtTimeTo12H,
+            displayTime: ForamtTimeTo12H,
             isTaken: takeSlots.includes(time24),
         });
         currentMin += durationMin; 
