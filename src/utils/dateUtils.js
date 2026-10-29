@@ -34,3 +34,46 @@ export const AvaliableDays = ({ totalDays = 14 }) =>{
   }
   return days;
 }
+
+export const TimeSlots = (openTime = '09:00' , closeTime = '23:00' , durationMin = 30 , takeSlots = []) => {
+
+    const slots = [] // to store all generated slots
+    const [ startHour , startMin ] = openTime.split(':').map(Number);
+    const [ endHour , endMin ] = closeTime.split(':').map(Number);
+
+    const currentMin = startHour * 60 + startMin;
+    const closingMin = endHour * 60 + endMin;
+
+    // as long as the working time is before or equal to the closing time it continues to executs
+    while (currentMin + durationMin <= closeTime){
+        const h = Math.floor(currentMin / 60);
+        const m = currentMin % 60;
+
+        const time24 =`${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}`;
+
+        slots.push({
+            time24:time24,
+            displayTime: foramtTimeTo12H,
+            isTaken: takeSlots.includes(time24),
+        });
+        currentMin += durationMin; 
+    }
+    return slots;
+};
+
+export const ForamtTimeTo12H = (time24) => {
+    if (!time24) return "" // preventing Errors by returning empty str
+
+    const [ hourStr , minStr ] = time24.split(':');
+
+    const hour = parseInt(hourStr , 10);
+    const minute = minStr || '00';
+
+    const ampm = hour >= 12 ? "PM" : "AM";
+
+    // convert 24H to 12H
+    hour = hour % 12;
+    hour = hour ? hour : 12 // if '0' then covert it to '12'
+
+    return `${hour}:${minute} ${ampm}`;
+}

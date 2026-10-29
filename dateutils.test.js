@@ -1,3 +1,5 @@
+import { AvaliableDays , TimeSlots , ForamtTimeTo12H } from "./src/utils/dateUtils";
+
 export default function Testing(){
     const day = 9 ;
     const formattedDay = String(day).padStart(2 ,'0');
