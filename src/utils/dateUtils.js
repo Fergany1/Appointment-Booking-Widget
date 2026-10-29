@@ -35,13 +35,13 @@ export const AvaliableDays = ({ totalDays = 14 }) =>{
   return days;
 }
 
-export const TimeSlots = (openTime = '09:00' , closeTime = '23:00' , durationMin = 30 , takeSlots = []) => {
+export function TimeSlots (openTime = '09:00' , closeTime = '23:00' , durationMin = 30 , takeSlots = []) {
 
     const slots = [] // to store all generated slots
     const [ startHour , startMin ] = openTime.split(':').map(Number);
     const [ endHour , endMin ] = closeTime.split(':').map(Number);
 
-    const currentMin = startHour * 60 + startMin;
+    let currentMin = startHour * 60 + startMin;
     const closingMin = endHour * 60 + endMin;
 
     // as long as the working time is before or equal to the closing time it continues to executs
@@ -74,6 +74,8 @@ export const ForamtTimeTo12H = (time24) => {
     // convert 24H to 12H
     hour = hour % 12;
     hour = hour ? hour : 12 // if '0' then covert it to '12'
+
+    const formatedHour = String(hour).padStart(2 , '0');
 
     return `${hour}:${minute} ${ampm}`;
 }
