@@ -74,10 +74,10 @@ export function DateUtilsTest(){
     );
 
     // Check If '02:00' Available
-    const slot0200 = slots.find((s) => s.time24 === '02:00');
+    const slot1100 = slots.find((s) => s.time24 === '11:00');
     console.log(
-        "Test 3.3 - Check IF 02:00 Is Available ?",
-        slot0200 && !slot0200.isTaken ? "✅ PASSED": "❌ Failed "
+        "Test 3.3 - Check IF 11:00 Is Available ?",
+        slot1100 && !slot1100.isTaken ? "✅ PASSED": "❌ Failed "
     );
 
     console.groupEnd();
