@@ -10,8 +10,8 @@ export const AvaliableDays = ({ totalDays = 14 }) =>{
   const today = new Date();
 
   for (let i = 0 ; i < totalDays ; i++){
-    const futureDate = new Date(); //
-    futureDate.setDate(today.getDate() + 1);
+    const futureDate = new Date(today); //
+    futureDate.setDate(today.getDate() + i);
 
     const year = futureDate.getFullYear();
     const month = String(futureDate.getMonth() + 1 ).padStart(2 ,'0');
@@ -77,5 +77,5 @@ export const ForamtTimeTo12H = (time24) => {
 
     const formatedHour = String(hour).padStart(2 , '0');
 
-    return `${hour}:${minute} ${ampm}`;
+    return `${formatedHour}:${minute} ${ampm}`;
 }

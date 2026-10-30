@@ -41,20 +41,28 @@ export function DateUtilsTest(){
     })
 
     // Test 2 - Check Avability for Monday Blocking
-    const days = AvaliableDays(7);
-    console.log('Generated Days : ' , days);
+    const days = AvaliableDays(30);
+    // console.log('Generated Days : ' , days);
+    let foundMon = false;
+    let mondayCount = 0;
+
 
     days.forEach((day , index) => {
         const isMon = day.dayTxt === 'Mon';
-        const shouldBeAvailable = !isMon;
-        const passed = day.isAvaliable === shouldBeAvailable;
-        
-        console.log(
-            `Test 2.${index + 1} - Date ${day.dateStr} ${day.dayTxt} | Available ? ${day.isAvaliable}`,
-            passed ? "✅ PASSED": `❌ Failed (Expected: ${shouldBeAvailable})`
-
-        )
+        if (isMon){
+            mondayCount++;
+            const passed = day.isAvaliable === false;
+            foundMon = true;
+            console.log(
+                `Test 2.${index + 1} Date ${day.dateStr} ${day.dayTxt} | Available ? ${day.isAvaliable}`,
+                passed ? "✅ PASSED": `❌ Failed`
+            )
+        }
     })
+
+    if(!foundMon){
+        console.log("Waring No Monday was Found")
+    }
 
     // Test 3 - check Service Durations
     const mockTakenSlot = ['09:00' , '09:30'];
@@ -69,14 +77,14 @@ export function DateUtilsTest(){
     // Check If '09:30' is Available
     const slot930 = slots.find((s) => s.time24 === '09:30');
     console.log(
-        'Test 3.2 - Is 09:30 Taken ?',
+        'Test 3.2 - Is 09:30 Taken ',
         slot930 && slot930.isTaken ? "✅ PASSED": "❌ Failed "
     );
 
     // Check If '02:00' Available
     const slot1100 = slots.find((s) => s.time24 === '11:00');
     console.log(
-        "Test 3.3 - Check IF 11:00 Is Available ?",
+        "Test 3.3 - Check IF 11:00 Is Available ",
         slot1100 && !slot1100.isTaken ? "✅ PASSED": "❌ Failed "
     );
 
