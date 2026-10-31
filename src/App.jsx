@@ -2,7 +2,7 @@ import './App.css';
 import BookingSystem from './components/DateSelect';
 import { DateUtilsTest } from '../dateutils.test';
 import { useEffect } from 'react';
-import DateSelect from './components/DateSelect';
+import BookingWidget from './components/BookingWidget';
 
 function App() {
 
@@ -11,7 +11,7 @@ function App() {
   // } , [])
   return (
     <>
-      <DateSelect />
+     <BookingWidget />
     </>
   )
 }
