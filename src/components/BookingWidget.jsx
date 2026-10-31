@@ -1,6 +1,7 @@
 import DateSelect from './DateSelect';
 import TimeSlotsPicker from './DateSelect';
 import { AvaliableDays } from '../utils/dateUtils';
+import { useState , useMemo } from 'react';
 
 
 export default function BookingWidget(){
@@ -27,7 +28,7 @@ export default function BookingWidget(){
             <DateSelect
                 bookingDays={bookingDays}
                 selectedDate={selectedDate}
-                handleSelectedDate={handleSelectedDate}
+                onSelectDate={handleSelectedDate}
             />
 
             {/**Time Slot Picker */}

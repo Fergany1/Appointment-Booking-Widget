@@ -1,21 +1,20 @@
-import { useMemo, useState } from "react";
-import { AvaliableDays , TimeSlots } from "../utils/dateUtils";
 
-export default function DateSelect(){
+export default function DateSelect({ bookingDays, selectedDate, onSelectDate }){
 
   return(
     <div>
       <h2>Select Date: </h2>
 
       {/**Date Picker */}
-      <div style={{ display: 'flex', gap: '12px', overflowX: 'auto', paddingBottom: '12px' }}>        {bookingDays.map((day) => {
+      <div style={{ display: 'flex', gap: '12px', overflowX: 'auto', paddingBottom: '12px' }}>        
+        {bookingDays.map((day) => {
           const isSelected = selectedDate === day.dateStr;
 
 
           return(
             <button key={day.dateStr}
             disabled={!day.isAvaliable}
-            onClick={() => handleSelectedDate(day.dateStr, day.isAvaliable)}
+            onClick={() => onSelectDate(day.dateStr, day.isAvaliable)}
             style={{
                 display: 'flex',
                 flexDirection: 'column',
