@@ -11,7 +11,7 @@ export default function TimeSlotsPicker({ selectedDate , selectedTime , onSelect
     return(
         <div>
             <h3>Available Times For {selectedDate} </h3>
-            <div>
+           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(90px, 1fr))', gap: '10px' }}>
                 {slots.map((slot) => {
                     const isSelected = selectedTime === slot.displayTime;
 
