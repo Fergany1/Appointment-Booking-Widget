@@ -2,20 +2,6 @@ import { useMemo, useState } from "react";
 import { AvaliableDays , TimeSlots } from "../utils/dateUtils";
 
 export default function DateSelect(){
-  const [ selectedDate , setSelectedDate ] = useState(null);
-  const [ selectedTime , setSelectedTime ] = useState(null);
-
-  const bookingDays = useMemo(() => {
-    return AvaliableDays(30);
-  } , []);
-
-  const handleSelectedDate = (dateStr , isAvaliable) => {
-    if(!isAvaliable) return;
-    setSelectedDate(dateStr);
-    setSelectedTime(null);
-  }
-
-  const selectedDayDate = bookingDays.find((d) => d.dateStr === selectedDate);
 
   return(
     <div>
