@@ -5,7 +5,7 @@
  * @param {number} totalDays - Number of days to generate starting from today
  * @returns {Array} Array of day objects with date strings and availability flags
  */
-export const AvaliableDays = ({ totalDays = 14 }) =>{
+export const AvaliableDays = ({ totalDays =30 }) =>{
   const days = [];
   const today = new Date();
 
