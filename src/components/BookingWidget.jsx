@@ -1,5 +1,5 @@
 import DateSelect from './DateSelect';
-import TimeSlotsPicker from './DateSelect';
+import TimeSlotsPicker from './TimeSlots';
 import { AvaliableDays } from '../utils/dateUtils';
 import { useState , useMemo } from 'react';
 
@@ -8,12 +8,12 @@ export default function BookingWidget(){
     const [ selectedDate , setSelectedDate ] = useState(null);
     const [ selectedTime , setSelectedTime ] = useState(null);
 
-    const bookingDays = useMemo(() => {
-        return AvaliableDays(30);
-    } , []);
+    const bookingDays = useMemo(() => 
+        AvaliableDays(30)
+    , []);
 
-    const handleSelectedDate = (dateStr , isAvaliable) => {
-        if(!isAvaliable) return;
+    const handleSelectedDate = (dateStr) => {
+        
         setSelectedDate(dateStr);
         setSelectedTime(null);
     }

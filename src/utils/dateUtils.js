@@ -5,16 +5,16 @@
  * @param {number} totalDays - Number of days to generate starting from today
  * @returns {Array} Array of day objects with date strings and availability flags
  */
-export const AvaliableDays = ({ totalDays =30 }) =>{
-  const days = [];
-  const today = new Date();
+export const AvaliableDays = ( totalDays =30 ) =>{
+  const days = []; // empty arr to store the generated days 
+  const today = new Date(); // initialize today's date 
 
   for (let i = 0 ; i < totalDays ; i++){
-    const futureDate = new Date(today); //
-    futureDate.setDate(today.getDate() + i);
+    const futureDate = new Date(today); 
+    futureDate.setDate(today.getDate() + i); // on each iteration we i days to the future date 
 
     const year = futureDate.getFullYear();
-    const month = String(futureDate.getMonth() + 1 ).padStart(2 ,'0');
+    const month = String(futureDate.getMonth() + 1 ).padStart(2 ,'0'); // number of months begin 0 -> 11 so we add 1 to the initialized month
     const dateVal = String(futureDate.getDate()).padStart(2 , '0');
     const dateStr = `${year}-${month}-${dateVal}`;
     
@@ -53,7 +53,7 @@ export function TimeSlots(openTime = '09:00' , closeTime = '12:00' , durationMin
 
         slots.push({
             time24:time24,
-            displayTime: ForamtTimeTo12H,
+            displayTime: ForamtTimeTo12H(time24),
             isTaken: takeSlots.includes(time24),
         });
         currentMin += durationMin; 

@@ -14,7 +14,7 @@ export default function DateSelect({ bookingDays, selectedDate, onSelectDate }){
           return(
             <button key={day.dateStr}
             disabled={!day.isAvaliable}
-            onClick={() => onSelectDate(day.dateStr, day.isAvaliable)}
+            onClick={() => onSelectDate(day.dateStr)}
             style={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -28,7 +28,7 @@ export default function DateSelect({ bookingDays, selectedDate, onSelectDate }){
                 backgroundColor: !day.isAvaliable ? '#f5f5f5' : isSelected ? '#e6f0ff' : '#fff',
                 transition: 'all 0.2s'
             }}>
-              <span pan style={{ fontSize: '11px', fontWeight: 'bold', textTransform: 'uppercase', color: '#666' }}>
+              <span style={{ fontSize: '11px', fontWeight: 'bold', textTransform: 'uppercase', color: '#666' }}>
                 {day.monthText}
               </span>
               <span style={{ fontSize: '20px', fontWeight: 'bold', margin: '4px 0' }}>
