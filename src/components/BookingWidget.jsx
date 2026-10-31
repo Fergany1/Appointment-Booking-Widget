@@ -32,7 +32,7 @@ export default function BookingWidget(){
             />
 
             {/**Time Slot Picker */}
-            {selectedDate && selectedDayData ? (
+            {selectedDate && selectedDayDate ? (
             <TimeSlotsPicker 
                 selectedDate={selectedDate}
                 openTime={selectedDayDate.openTime}

@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { TimeSlots } from "../utils/dateUtils";
 
-export default function TimeSlotsPicker({ selectedDate , selectedTime , onSelectTime , closeTime }) {
+export default function TimeSlotsPicker({ selectedDate , selectedTime , onSelectTime ,openTime, closeTime }) {
     const slots = useMemo(() => {
         const takenSlots = ['10:00' , '12:00'];
 
